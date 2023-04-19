@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   }
 
-  cityName: string = 'Delhi';
+  cityName: string = 'New Delhi';
   weatherData?: WeatherData ;
 
   ngOnInit(): void {
