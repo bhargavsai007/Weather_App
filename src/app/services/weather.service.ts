@@ -8,9 +8,9 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class WeatherService {
 
-  private weatherApiBaseUrl = 'https://open-weather13.p.rapidapi.com';
+  private weatherApiBaseUrl = 'https://weatherapi-com.p.rapidapi.com/current.json?q=';
   private XRapidAPIHostHeaderName = 'X-RapidAPI-Host';
-  private XRapidAPIHostHeaderValue = 'open-weather13.p.rapidapi.com';
+  private XRapidAPIHostHeaderValue = 'weatherapi-com.p.rapidapi.com';
   private XRapidAPIKeyHeaderName = 'X-RapidAPI-Key';
   private XRapidAPIKeyHeaderValue = 'f0d38ec440msh496cb250d4dfa8bp1040e6jsnebabc62dbaaa';
 
@@ -18,10 +18,10 @@ export class WeatherService {
 
 
   getWeatherData(cityName:string): Observable<WeatherData> {
-    return this.http.get<WeatherData>(this.weatherApiBaseUrl+'/city/'+cityName, {
+    return this.http.get<WeatherData>(this.weatherApiBaseUrl+cityName, {
       headers: new HttpHeaders()
       .set(this.XRapidAPIHostHeaderName, this.XRapidAPIHostHeaderValue)
-      .set(this.XRapidAPIKeyHeaderName, this.XRapidAPIKeyHeaderValue),
+      .set(this.XRapidAPIKeyHeaderName, this.XRapidAPIKeyHeaderValue)
     });
    }
 }
